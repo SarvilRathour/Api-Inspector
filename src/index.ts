@@ -1,5 +1,6 @@
 import * as readline from 'node:readline';
 import { stdin as input, stdout as output } from 'node:process';
+import {parse} from "./core/parser.js";
 const rl = readline.createInterface({ input, output });
 function taking_input(query: string): Promise<String> {
     return new Promise(resolve => rl.question(query, resolve));
@@ -14,7 +15,7 @@ async function main() {
         if (pureInput == 'break') {
             break;
         }
-        console.log(`${pureInput}`);
+        parse(pureInput);
     }
     rl.close();
 }
