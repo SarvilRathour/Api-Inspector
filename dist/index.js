@@ -15,7 +15,7 @@ async function main() {
         if (pureInput == 'break') {
             break;
         }
-        parse(pureInput);
+        await parse(pureInput);
     }
     rl.close();
 }

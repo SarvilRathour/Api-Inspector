@@ -1,5 +1,5 @@
 import { Method, Get, Post } from "./httpClient.js";
-export function parse(data) {
+export async function parse(data) {
     const inputs = data.split(' ');
     // console.log(inputs);   Result--[ 'api', 'GET', 'https://reqres.in/api/users' ]
     if (inputs[0] == "api") {
@@ -9,10 +9,10 @@ export function parse(data) {
         if (method === Method.Post) {
             if (data === "--data") {
                 const body = inputs[4];
-                Post({ url, body });
+                await Post({ url, body });
             }
             else {
-                Post({ url });
+                await Post({ url });
             }
         }
         else if (method === Method.Get) {
